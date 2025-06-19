@@ -1,6 +1,19 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root{
@@ -21,7 +34,31 @@
     --background-color: #FAFAFA; 
 
     /* Text */
-    --ff-syne: "Syne", sans-serif;
+    --ff-base: "Montserrat", sans-serif;
 
-    --ff-montserrat: "Montserrat", sans-serif;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 2.5rem;
+    --text-xl: 4rem;
+}
+
+html{
+    font: 500 1rem/1.5 var(--ff-base);
+
+}
+
+button{
+    font: 500 1rem/1.5 var(--ff-base);
+}
+
+h1{
+    font-family: 'Syne', sans-serif; 
+    font-size: var(--text-xl);
+    line-height: 1.25;
+}
+
+h2{
+    font-family: 'Syne', sans-serif;
+    font-size: var(--text-lg);
+    line-height: 1.2;
 }

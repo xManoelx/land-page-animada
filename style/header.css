@@ -26,6 +26,12 @@ header.top{
 
     a{
         position: relative;
+        /* Increase touch target for mobile */
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     a span{
@@ -45,5 +51,66 @@ header.top{
         justify-content: center;
 
         border-radius: 50%;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    header.top {
+        padding: 1rem 1.5rem;
+    }
+
+    header.top img {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    header.top a span {
+        font-size: 0.6875rem;
+        width: 1.125rem;
+        height: 1.125rem;
+        top: -0.375rem;
+        right: -0.375rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header.top {
+        padding: 0.75rem 1rem;
+    }
+
+    header.top img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    header.top a {
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    header.top a span {
+        font-size: 0.625rem;
+        width: 1rem;
+        height: 1rem;
+        top: -0.25rem;
+        right: -0.25rem;
+    }
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    header.top img[src*="clip-path"]:hover,
+    header.top img[src*="shopping"]:hover {
+        transform: none;
+    }
+    
+    /* Add tap effects instead */
+    header.top img[src*="clip-path"]:active {
+        transform: rotate(90deg);
+    }
+    
+    header.top img[src*="shopping"]:active {
+        transform: rotate(-30deg);
     }
 }

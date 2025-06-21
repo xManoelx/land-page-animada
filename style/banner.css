@@ -29,8 +29,77 @@
 
         animation: gradient 20s ease infinite;
     }
+}
 
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .banner {
+        padding-block: 2rem;
+    }
+    
+    .banner .scroller {
+        padding-block: 0.75rem;
+    }
+    
+    .banner .rolling {
+        gap: 1rem;
+        animation: rolling-mobile 2s linear infinite;
+    }
+    
+    .banner .rolling img {
+        height: auto;
+        max-height: 40px;
+    }
+}
 
+@media (max-width: 480px) {
+    .banner {
+        padding-block: 1.5rem;
+    }
+    
+    .banner .scroller {
+        padding-block: 0.5rem;
+    }
+    
+    .banner .rolling {
+        gap: 0.75rem;
+        animation: rolling-mobile-small 2s linear infinite;
+    }
+    
+    .banner .rolling img {
+        max-height: 32px;
+    }
+}
+
+/* Pause animation on hover for desktop */
+@media (hover: hover) and (pointer: fine) {
+    .banner:hover .rolling {
+        animation-play-state: paused;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .banner .rolling {
+        animation: none;
+    }
+    
+    .banner .bg-gradient-animate {
+        animation: none;
+        background-position: 50% 50%;
+    }
+}
+
+/* Performance optimization for mobile */
+@media (max-width: 768px) {
+    .banner .bg-gradient-animate {
+        will-change: background-position;
+        animation: gradient-mobile 25s ease infinite;
+    }
+    
+    .banner .rolling {
+        will-change: transform;
+    }
 }
 
 @keyframes rolling{
@@ -39,7 +108,25 @@
     }
 }
 
+@keyframes rolling-mobile{
+    to{
+        transform: translateX(-100px);
+    }
+}
+
+@keyframes rolling-mobile-small{
+    to{
+        transform: translateX(-80px);
+    }
+}
+
 @keyframes gradient{
+    50%{
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes gradient-mobile{
     50%{
         background-position: 100% 50%;
     }
